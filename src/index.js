@@ -4,7 +4,7 @@ import os from 'os'
 import { logger } from './utils/logger'
 
 if (cluster.isMaster) {
-  const cpus = os.cpus().length
+  const cpus = os.cpus()
   logger.info(`Clustering to ${cpus} CPUs`)
   cpus.forEach(() => cluster.fork())
 } else {

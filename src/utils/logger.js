@@ -1,5 +1,5 @@
 import winston from 'winston'
-import { NODE_ENV } from '../constants'
+import { NODE_ENV } from './constants'
 
 export const logger = winston.createLogger({
   level: 'info',
