@@ -1,32 +1,26 @@
 import Koa from 'koa'
-import cors from '@koa/cors'
-import bodyParser from 'koa-bodyparser'
-import compress from 'koa-compress'
-import { scopePerRequest, loadControllers } from 'awilix-koa'
+import http from 'http'
 import { logger } from './utils/logger'
-import { requestLogger } from './middleware/request-logger'
-import { notFoundHandler } from './middleware/not-found'
-import { errorHandler } from './middleware/error-handler'
+import { PORT, NODE_ENV } from './utils/constants'
 
-export const createApp = container => {
-  logger.info('Creating app instance')
+logger.info('Creating app instance')
 
-  const app = new Koa()
+const app = new Koa()
 
-  logger.info(__dirname)
-  logger.info(loadControllers('./controllers/*.js', { cwd: __dirname }))
+app.use(async () => logger.info(`Handling request from ${process.pid}`))
 
-  app
-    .use(errorHandler)
-    .use(requestLogger)
-    .use(compress())
-    .use(cors())
-    .use(bodyParser())
-    .use(scopePerRequest(container))
-    .use(loadControllers('./controllers/*.js', { cwd: __dirname }))
-    .use(notFoundHandler)
+logger.info('Koa application created!')
 
-  logger.info('Koa application created!')
+const server = http.createServer(app.callback())
 
-  return app
-}
+server.on('close', () => {
+  logger.info('Server closing, bye!')
+})
+
+logger.info('Server created, ready to listen', { scope: 'startup' })
+
+app.listen(PORT, () => {
+  logger.info(
+    `Server listening on ${PORT} in ${NODE_ENV} mode  PID: ${process.pid}`
+  )
+})
