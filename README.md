@@ -1,60 +1,23 @@
 # NodeJS cluster example
 
-# UNDER CONSTRUCTION
+<img src="https://i.imgur.com/VE6LN9S.png"/>
 
-<img src="https://i.imgur.com/RVpDC4x.png"/>
-
-Simple <a href="https://www.nginx.com/resources/glossary/reverse-proxy-server/">reverse-proxy</a> server based on Nginx NodeJS and PostgreSQL.
-
-NodeJS part of this project is based on <a href="https://github.com/morzhanov/nodejs-koa-boilerplate">nodejs-koa-boilerplate</a>
+Simple <a href="https://nodejs.org/api/cluster.html">nodejs cluster</a> example app.
 
 ## Installation
 
 Use these steps to install project
 
-1. Install Docker: https://www.docker.com/
-2. Build project: `docker-compose build`
-3. Run docker-compose: `docker-compose up -d`
-4. Stop containers: `docker-compose down`
-
-For local development (NodeJS) pass variables in .env file and use local PostgreSQL database (you can use official <a href="https://hub.docker.com/_/postgres/">Docker</a> container).
-
-## NodeJS project folders structure
-
-This boilerplate contains such folders:
-
-- <b>/src </b> - main sources folder.
-- <b>/src/constants </b> - app constants.
-- <b>/src/controllers </b> - contain controllers that receives requests from routes, executes business logic via services and returns responses to client.
-- <b>/src/db </b> - contain scripts to setup and manage database
-- <b>/src/middleware </b> - app middlewares
-- <b>/src/entities </b> - database entities
-- <b>/src/services </b> - services contains logic to manage database, execute requests to other servers, change application behabior, and etc.
-- <b>/src/app.js </b> - app configuration
-- <b>/src/index.js </b> - contain main scripts that configures and run server
-- <b>/test </b> - contains tests for controllers, services and other parts of application.
-
-## NodeJS project scripts
-
-- start - run dev server using nodemon
-- build - build project
-- serve - run built files
+1. To start development mode: `yarn start`
+2. To build project: `yarn build`
+3. To serve built files: `yarn serve`
 
 ## Main Technologies and libraries
 
-- <a href="https://www.docker.com/">Docker</a>
 - <a href="https://nodejs.org/en/">NodeJS</a>
-- <a href="https://www.nginx.com/">Nginx</a>
-- <a href="https://www.postgresql.org/">PostgreSQL</a>
+- <a href="https://nodejs.org/api/cluster.html">NodeJS cluster</a>
 - <a href="https://koajs.com/#">KoaJS</a>
 - <a href="https://babeljs.io/">Babel</a>
-- <a href="https://github.com/auth0/node-jsonwebtoken">jsonwebtoken</a>
-- <a href="https://github.com/typeorm/typeorm">typeorm</a>
-- <a href="https://github.com/jeffijoe/awilix">awilix</a>
-- <a href="https://github.com/jeffijoe/awilix-koa">awilix-koa</a>
-- <a href="https://github.com/koajs/bodyparser">koa-bodyparser</a>
-- <a href="https://github.com/varunpal/koa-cookie">koa-cookie</a>
-- <a href="https://github.com/alexmingoia/koa-router">koa-router</a>
 
 ## Contributing
 
