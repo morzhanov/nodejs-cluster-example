@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-koa-boilerplate",
+  "name": "nodejs-cluster-example",
   "version": "1.0.0",
   "description": "NodeJS Koa Boilerplate",
   "main": "./src/bin/www.js",
